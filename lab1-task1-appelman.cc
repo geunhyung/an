@@ -25,6 +25,7 @@ main(int argc, char *argv[]) {
     
     CommandLine cmd;
     cmd.AddValue ("delay", "Time of delay on the linke: <num>ms", DELAY);
+    cmd.AddValue ("rwnd", "Maximum window size of receiver.", MAX_RWIN);
     cmd.Parse (argc, argv);
 
     // Simulation parameters
@@ -63,7 +64,7 @@ main(int argc, char *argv[]) {
     PacketSinkHelper sinkHelper ("ns3::TcpSocketFactory", sinkLocalAddress);
     ApplicationContainer sinkApp = sinkHelper.Install (nodes.Get (0));
     sinkApp.Start (Seconds (1.0));
-    sinkApp.Stop (Seconds (60.0));
+    sinkApp.Stop (Seconds (50.0));
     
     NS_LOG_INFO("Create TCP Client.");
     
@@ -72,6 +73,7 @@ main(int argc, char *argv[]) {
     Ipv4Address serverAddress = interfaces.GetAddress (0);
     AddressValue remoteAddress (InetSocketAddress (serverAddress, port));
     onOffHelper.SetAttribute ("Remote", remoteAddress);
+    onOffHelper.SetAttribute ("DataRate", StringValue ("2.0Mbps"));
     clientApp.Add (onOffHelper.Install (nodes.Get (1)));
     
     clientApp.Start (Seconds (1.0));
@@ -88,7 +90,7 @@ main(int argc, char *argv[]) {
 
     // Set simulation timeout and run.
     NS_LOG_INFO("Run Simulation.");
-    Simulator::Stop(Seconds(60.0));
+    Simulator::Stop(Seconds(50.0));
     Simulator::Run();
 
     monitor->CheckForLostPackets ();
@@ -97,7 +99,7 @@ main(int argc, char *argv[]) {
 
     for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator i = stats.begin (); i != stats.end (); ++i) {
             Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow (i->first);
-            std::cout << "Flow " << i->first << ", delay: " << DELAY << " (" << t.sourceAddress << " -> " << t.destinationAddress << ")\n";
+            std::cout << "Flow " << i->first << ", delay: " << DELAY << ", RWND: " << MAX_RWIN << " (" << t.sourceAddress << " -> " << t.destinationAddress << ")\n";
             std::cout << "  Tx Bytes:   " << i->second.txBytes << "\n";
             std::cout << "  Rx Bytes:   " << i->second.rxBytes << "\n";
             std::cout << "  Throughput: " << i->second.rxBytes * 8.0 / 50.0 / 1024 / 1024  << " Mbps\n";
