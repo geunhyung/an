@@ -1,6 +1,8 @@
 Lab 1: TCP Performance Monitoring
 =================================
 
+*Note: this file is written in Markdown. For more comfortable reading please see my [GitHub page](https://github.com/michielappelman/an).*
+
 Installation tutorial
 ---------------------
 
@@ -117,46 +119,60 @@ I couldn't find anything on this in the `$NS3 HOME/examples/udp- client-server/u
 
 **Create TCP socket and monitor congestion window: in `$NS3 HOME/examples/tutorial/fifth.cc`**
 
+I did look at the rest of the tutorial but only while I was hacking together the script below:
+
 Task 1: Throughput of TCP
 -------------------------
 
-    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1"
-    Waf: Entering directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    Waf: Leaving directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    'build' finished successfully (1.542s)
-    Flow 1, delay: 64ms (10.1.1.2 -> 10.1.1.1)
-      Tx Bytes:   1616680
-      Rx Bytes:   1616680
-      Throughput: 0.246686 Mbps
-    Flow 2, delay: 64ms (10.1.1.1 -> 10.1.1.2)
-      Tx Bytes:   58320
-      Rx Bytes:   58320
-      Throughput: 0.00889893 Mbps
-    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --delay=96ms"
-    Waf: Entering directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    Waf: Leaving directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    'build' finished successfully (1.553s)
-    Flow 1, delay: 96ms (10.1.1.2 -> 10.1.1.1)
-      Tx Bytes:   1682744
-      Rx Bytes:   1682744
-      Throughput: 0.256766 Mbps
-    Flow 2, delay: 96ms (10.1.1.1 -> 10.1.1.2)
-      Tx Bytes:   61200
-      Rx Bytes:   61200
-      Throughput: 0.00933838 Mbps
-    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --delay=128ms"
-    Waf: Entering directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    Waf: Leaving directory `/home/mike/ns-allinone-3.16/ns-3.16/build'
-    'build' finished successfully (1.552s)
-    Flow 1, delay: 128ms (10.1.1.2 -> 10.1.1.1)
-      Tx Bytes:   1678000
-      Rx Bytes:   1678000
-      Throughput: 0.256042 Mbps
-    Flow 2, delay: 128ms (10.1.1.1 -> 10.1.1.2)
-      Tx Bytes:   62000
-      Rx Bytes:   62000
-      Throughput: 0.00946045 Mbps
+Please see the file attached named `lab1-task1-appelman.cc`. This is the output:
 
+    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1"
+    Flow 1, delay: 64ms (10.1.1.2 -> 10.1.1.1)
+      Tx Bytes:   6133168
+      Rx Bytes:   6131888
+      Throughput: 0.935652 Mbps
+    Flow 2, delay: 64ms (10.1.1.1 -> 10.1.1.2)
+      Tx Bytes:   213680
+      Rx Bytes:   213480
+      Throughput: 0.0325745 Mbps
+    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --delay=96ms"
+    Flow 1, delay: 96ms (10.1.1.2 -> 10.1.1.1)
+      Tx Bytes:   4157048
+      Rx Bytes:   4142072
+      Throughput: 0.63203 Mbps
+    Flow 2, delay: 96ms (10.1.1.1 -> 10.1.1.2)
+      Tx Bytes:   143880
+      Rx Bytes:   143800
+      Throughput: 0.0219421 Mbps
+    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --delay=128ms"
+    Flow 1, delay: 128ms (10.1.1.2 -> 10.1.1.1)
+      Tx Bytes:   3104696
+      Rx Bytes:   3094328
+      Throughput: 0.472157 Mbps
+    Flow 2, delay: 128ms (10.1.1.1 -> 10.1.1.2)
+      Tx Bytes:   107520
+      Rx Bytes:   107280
+      Throughput: 0.0163696 Mbps
+
+As you can see I added a command line argument called delay to set the delay for the link so I don't have to change the source all the time.
+
+### Questions ###
+
+1. Done. See above.
+1. It does, this is because the propagation of the data takes longer and thus the amount of Mb's that can be sent per second goes down because the sender is waiting for the receiver to acknowlede the reception (which also takes longer to arrive).
+1. According to the [Broadband Internet Speedtest](http://speedtest.raketforskning.com/tuning-tcp-window-size.html), there is a simple calculation to make: `receive window size = bandwidth * delay`. In this case the optimal receiving window should be: `3.35544e6 bit/sec * 0.064 = 214748 bits = 26844 bytes`. Running this in a test yields the following result:
+
+    mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --rwnd=26844"
+	Flow 1, delay: 64ms, RWND: 26844 (10.1.1.2 -> 10.1.1.1)
+	  Tx Bytes:   4118200
+	  Rx Bytes:   4118200
+	  Throughput: 0.628387 Mbps
+	Flow 2, delay: 64ms, RWND: 26844 (10.1.1.1 -> 10.1.1.2)
+	  Tx Bytes:   143520
+	  Rx Bytes:   143240
+	  Throughput: 0.0218567 Mbps
+
+Not a particular high number compared to the result of the default of 16384 bytes... But this might be caused by the TCP slow start function. Through some testing of my own it appears that the optimal RWND should be around 16550 bytes.
 
 Task 2: Monitoring TCP congestion window
 ----------------------------------------
