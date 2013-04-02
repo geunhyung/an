@@ -160,7 +160,9 @@ As you can see I added a command line argument called delay to set the delay for
 
 1. Done. See above.
 1. It does, this is because the propagation of the data takes longer and thus the amount of Mb's that can be sent per second goes down because the sender is waiting for the receiver to acknowlede the reception (which also takes longer to arrive).
-1. According to the [Broadband Internet Speedtest](http://speedtest.raketforskning.com/tuning-tcp-window-size.html), there is a simple calculation to make: `receive window size = bandwidth * delay`. In this case the optimal receiving window should be: `3.35544e6 bit/sec * 0.064 = 214748 bits = 26844 bytes`. Running this in a test yields the following result:
+1. According to the [Broadband Internet Speedtest](http://speedtest.raketforskning.com/tuning-tcp-window-size.html), there is a simple calculation to make: `receive window size = bandwidth * delay`. In this case the optimal receiving window should be: `3.35544e6 bit/sec * 0.064 = 214748 bits = 26844 bytes`. Running this in a test yields the following result as seen below.
+
+Not a particular high number compared to the result of the default of 16384 bytes... But this might be caused by the TCP slow start function. Through some testing of my own it appears that the optimal RWND should be around 16550 bytes.
 
     mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1 --rwnd=26844"
 	Flow 1, delay: 64ms, RWND: 26844 (10.1.1.2 -> 10.1.1.1)
@@ -171,8 +173,6 @@ As you can see I added a command line argument called delay to set the delay for
 	  Tx Bytes:   143520
 	  Rx Bytes:   143240
 	  Throughput: 0.0218567 Mbps
-
-Not a particular high number compared to the result of the default of 16384 bytes... But this might be caused by the TCP slow start function. Through some testing of my own it appears that the optimal RWND should be around 16550 bytes.
 
 Task 2: Monitoring TCP congestion window
 ----------------------------------------
