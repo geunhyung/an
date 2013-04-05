@@ -120,6 +120,12 @@ void MyApp::ChangeRate(DataRate newrate) {
     return;
 }
 
+static void CwndChange (uint32_t oldCwnd, uint32_t newCwnd)
+{
+        std::cout << Simulator::Now ().GetSeconds () << "," << newCwnd << "\n";
+}
+
+
 // Define your NS_LOG identifier here
 NS_LOG_COMPONENT_DEFINE("lab1-task2-appelman");
 
@@ -132,9 +138,9 @@ int main(int argc, char *argv[]) {
     cmd.Parse (argc, argv);
     
     // Simulation parameters
-    Config::SetDefault ("ns3::TcpL4Protocol::SocketType", StringValue ("ns3::TcpTahoe")); 
+    Config::SetDefault ("ns3::TcpL4Protocol::SocketType", StringValue ("ns3::TcpNewReno")); 
     Config::SetDefault ("ns3::TcpSocket::DelAckCount", UintegerValue (1));
-    // Config::SetDefault ("ns3::DropTailQueue::MaxPackets", UintegerValue (40));
+    Config::SetDefault ("ns3::DropTailQueue::MaxPackets", UintegerValue (40));
 
     NS_LOG_INFO("Create nodes.");
     // Create network toplogy using NodeContainer class
@@ -180,6 +186,8 @@ int main(int argc, char *argv[]) {
     Ptr<Socket> clientSocket = Socket::CreateSocket(clientNode,
     TcpSocketFactory::GetTypeId());
     
+    clientSocket->TraceConnectWithoutContext ("CongestionWindow", MakeCallback (&CwndChange));
+
     // Create an application
     Ptr<MyApp> clientApp = CreateObject<MyApp>();
 
