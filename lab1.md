@@ -174,12 +174,16 @@ Not a particular high number compared to the result of the default of 16384 byte
 	  Rx Bytes:   143240
 	  Throughput: 0.0218567 Mbps
 
-Task 2: Monitoring TCP congestion window
+Task 2A: Monitoring TCP congestion window
 ----------------------------------------
 
 ### Questions ###
 
 1. Record CWND in two simulation scenario. Use gnuplot to visualize the graphs.
+1. Mark points of slow start and congestion avoidance in the graphs during time period 1s-3s for both scenarios: with and without droptail queue setting.
+1. Perform similar experiment with droptail queue setting 40 packets for other TCP variants: Reno and New Reno. Plot graphs and show differences among them in phases: slow start, congestion avoidance and fast recovery.
+
+For answers, see pictures below:
 
 Tahoe w/o droptail:
 ![Tahoe](results-2a/tahoe.png)
@@ -199,6 +203,25 @@ NewReno w/o droptail:
 NewReno with droptail:
 ![NewReno Droptail](results-2a/newreno-droptail.png)
 
-2. Mark points of slow start and congestion avoidance in the graphs during time period 1s-3s for both scenarios: with and without droptail queue setting.
 
-3. Perform similar experiment with droptail queue setting 40 packets for other TCP variants: Reno and New Reno. Plot graphs and show differences among them in phases: slow start, congestion avoidance and fast recovery.
+Task 2B: Connection sharing
+----------------------------------------
+
+We got this note from Canh which helped a lot:
+
+> The Task 2B asks to change data rate at time 20.0s, meaning you need to schedule a function call at that time by using Simulator::Schedule() method. 
+> 
+> To make thing simple without involving to much in C++, here is the sample code using for Task-2B simulation:
+> 
+> `Simulator::Schedule(Seconds(20.), &MyApp::ChangeRate, clientApp, DataRate("10Mbps"));`
+> 
+> which:
+>  - `&MyApp::ChangeRate` is the pointer to class method 
+>  - `clientApp` is the MyApp class object
+>  - `DataRate("10Mbps")` is the parameter for MyApp::ChangeRate method.
+
+### Questions ###
+
+1. Monitor CWND changes when UDP connection starts and competes bandwidth of the bot- tleneck. Use gnuplot to plot graphs.
+1. Explain results.
+
