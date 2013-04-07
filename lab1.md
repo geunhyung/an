@@ -177,7 +177,7 @@ Not a particular high number compared to the result of the default of 16384 byte
 Task 2A: Monitoring TCP congestion window
 ----------------------------------------
 
-Please see the [lab1-task1-appelman.cc](lab1-task2-appelman.cc) source file.
+Please see the [lab1-task2-appelman.cc](lab1-task2-appelman.cc) source file.
 
 ### Questions ###
 
@@ -222,8 +222,49 @@ We got this note from Canh which helped a lot:
 >  - `clientApp` is the MyApp class object
 >  - `DataRate("10Mbps")` is the parameter for MyApp::ChangeRate method.
 
+The resulting file is aptly called [lab1-task2b-appelman.cc](lab1-task2b-appelman.cc). The results from the test are included in the `results-2b` directory.
+
 ### Questions ###
 
-1. Monitor CWND changes when UDP connection starts and competes bandwidth of the bot- tleneck. Use gnuplot to plot graphs.
+1. Monitor CWND changes when UDP connection starts and competes bandwidth of the bottleneck. Use gnuplot to plot graphs.
 1. Explain results.
 
+The default TCP mode that ns-3 uses is ns-3 which unfiltered gave me a very weird graph:
+
+![NewReno Congestion Unfiltered](results-2b/connection-sharing-newreno-unf.png)
+
+This doesn't allow us to see anything really.. I removed the following results:
+
+> 10.4443,4294962740
+> 10.4443,4294963276
+> 10.4448,4294963812
+> 10.4452,4294964348
+> 10.4457,4294964884
+> 10.4462,4294965420
+> 10.4478,4294965956
+> 10.4483,4294966492
+> 10.4817,4294965956
+> 10.4817,4294966492
+> 10.4822,4294963812
+> 10.4822,4294964348
+> 10.4826,4294964884
+> 10.4831,4294965420
+> 10.5191,4294965956
+> 10.5195,4294966492
+> 10.52,4294967028
+
+Which can be seen in a seprate graph like this:
+
+![NewReno Congestion Removed](results-2b/removed-newreno.png)
+
+After that the graph looks a bit more interesting:
+
+![NewReno Congestion Filtered](results-2b/connection-sharing-newreno.png)
+
+I also generate graphs for Tahoe:
+
+![Tahoe Congestion](results-2b/connection-sharing-tahoe.png)
+
+And Reno:
+
+![Reno Congestion](results-2b/connection-sharing-reno.png)
