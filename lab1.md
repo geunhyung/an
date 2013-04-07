@@ -177,3 +177,28 @@ Not a particular high number compared to the result of the default of 16384 byte
 Task 2: Monitoring TCP congestion window
 ----------------------------------------
 
+### Questions ###
+
+1. Record CWND in two simulation scenario. Use gnuplot to visualize the graphs.
+
+Tahoe w/o droptail:
+![Tahoe](results-2a/tahoe.png)
+
+Tahoe with droptail:
+![Tahoe Droptail](results-2a/tahoe-droptail.png)
+
+Reno w/o droptail:
+![Reno](results-2a/reno.png)
+
+Reno with droptail:
+![Reno Droptail](results-2a/reno-droptail.png)
+
+NewReno w/o droptail:
+![NewReno](results-2a/newreno.png)
+
+NewReno with droptail:
+![NewReno Droptail](results-2a/newreno-droptail.png)
+
+2. Mark points of slow start and congestion avoidance in the graphs during time period 1s-3s for both scenarios: with and without droptail queue setting.
+
+3. Perform similar experiment with droptail queue setting 40 packets for other TCP variants: Reno and New Reno. Plot graphs and show differences among them in phases: slow start, congestion avoidance and fast recovery.
