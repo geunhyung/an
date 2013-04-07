@@ -235,23 +235,23 @@ The default TCP mode that ns-3 uses is ns-3 which unfiltered gave me a very weir
 
 This doesn't allow us to see anything really.. I removed the following results:
 
-> 10.4443,4294962740
-> 10.4443,4294963276
-> 10.4448,4294963812
-> 10.4452,4294964348
-> 10.4457,4294964884
-> 10.4462,4294965420
-> 10.4478,4294965956
-> 10.4483,4294966492
-> 10.4817,4294965956
-> 10.4817,4294966492
-> 10.4822,4294963812
-> 10.4822,4294964348
-> 10.4826,4294964884
-> 10.4831,4294965420
-> 10.5191,4294965956
-> 10.5195,4294966492
-> 10.52,4294967028
+    10.4443,4294962740
+    10.4443,4294963276
+    10.4448,4294963812
+    10.4452,4294964348
+    10.4457,4294964884
+    10.4462,4294965420
+    10.4478,4294965956
+    10.4483,4294966492
+    10.4817,4294965956
+    10.4817,4294966492
+    10.4822,4294963812
+    10.4822,4294964348
+    10.4826,4294964884
+    10.4831,4294965420
+    10.5191,4294965956
+    10.5195,4294966492
+    10.52,4294967028
 
 Which can be seen in a seprate graph like this:
 
@@ -261,10 +261,16 @@ After that the graph looks a bit more interesting:
 
 ![NewReno Congestion Filtered](results-2b/connection-sharing-newreno.png)
 
-I also generate graphs for Tahoe:
+This spike happens after the start of the UDP stream, and the Congestion Window has already been shrunk to a very small size (sub-1000), then it builds up to 28140 and after that the *huge* new window, and back to sub-1000 sizes again. The only thing I could think of is a 32-bit wrap around of the congestion window value, since the values are pretty close to 2^32-1 = 4294967295.
+
+### Extra Graphs ###
+
+I also generated graphs for Tahoe:
 
 ![Tahoe Congestion](results-2b/connection-sharing-tahoe.png)
 
 And Reno:
 
 ![Reno Congestion](results-2b/connection-sharing-reno.png)
+
+It's interesting to see the large differences in these implementations. The Tahoe implementation really starts all over again after a few duplicates, while the Reno implementations try to use as much of the BW as possible while finding a new sweet spot for the Congestion Window.
