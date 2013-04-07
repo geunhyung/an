@@ -124,7 +124,7 @@ I did look at the rest of the tutorial but only while I was hacking together the
 Task 1: Throughput of TCP
 -------------------------
 
-Please see the file attached named [lab1-task1-appelman.cc](`lab1-task1-appelman.cc`). This is the output:
+Please see the file attached named `[lab1-task1-appelman.cc](lab1-task1-appelman.cc)`. This is the output:
 
     mike@alpha:~/ns-allinone-3.16/ns-3.16$ ./waf --run "lab1"
     Flow 1, delay: 64ms (10.1.1.2 -> 10.1.1.1)
@@ -177,7 +177,7 @@ Not a particular high number compared to the result of the default of 16384 byte
 Task 2A: Monitoring TCP congestion window
 ----------------------------------------
 
-Please see the [lab1-task1-appelman.cc](`lab1-task2-appelman.cc`) source file.
+Please see the `[lab1-task1-appelman.cc](lab1-task2-appelman.cc)` source file.
 
 ### Questions ###
 
