@@ -144,7 +144,6 @@ int main(int argc, char *argv[]) {
 
     // Create channels with specified data rate and delay, without IP addresses first
     NS_LOG_INFO("Create channel.");
-OG_INFO("Create channel.");
 
     PointToPointHelper pointToPointBB;
     pointToPointBB.SetDeviceAttribute ("DataRate", StringValue ("10Mbps"));
