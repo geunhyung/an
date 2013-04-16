@@ -75,8 +75,8 @@ Done. If you want to hear the class room at the time of the recording please lis
 
 |                       | Maximum jitter (ms) | Mean jitter (ms) |
 |----------------------:|:--------------------|:-----------------|
-| from Mac to server    | 0.59ms              | 0.48ms           |
-| from iPhone to server | 10.98ms             | 6.65ms           |
+| from Mac to server    | 0.59                | 0.48             |
+| from iPhone to server | 10.98               | 6.65             |
 
 The increase in jitter for the iPhone can be explained because the iPhone is on WLAN and is also outside of the OS3 network and will need to be routed some more.
 
