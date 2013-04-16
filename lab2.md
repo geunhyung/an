@@ -20,34 +20,6 @@ I first generated the MD5 hash for the users, thanks to [voip-info.org](http://w
 
 I could then add them to my `sip.conf` file:
 
-    [general]
-	srvlookup=yes
-
-	disallow=all   ; First disallow all codecs
-	allow=ulaw
-	allow=alaw     ; Allow codecs in order of
-	allow=ilbc     ; preference
-	allow=gsm
-	allow=h261
-
-	[1001]
-	type=peer
-	secret=an2012
-	host=dynamic   ; This device registers with us
-	context=users
-
-	[1002]
-	type=peer
-	host=dynamic
-	md5secret=f520e168eaa4588992f022afb0779ee4   ;password: an2012
-	context=users
-
-	[1003]
-	type=peer
-	host=dynamic
-	md5secret=5f25959ccfe17379c2c7fdd8df879482    ;password: 'an2012'
-	context=users
-
 	[appelman01]
 	type=peer
 	host=dynamic
@@ -60,7 +32,18 @@ I could then add them to my `sip.conf` file:
 	md5secret=23f134c77231e202ddd494448e9c471f
 	context=users
 
+I also added the extensions to my `extensions.conf`:
 
+    [stations]
+
+	exten => 1001,1,Macro(phone)
+	exten => 1002,1,Macro(phone)
+	exten => 1003,1,Macro(phone)
+	exten => appelman01,1,Macro(phone)
+	exten => appelman02,1,Macro(phone)
+	;exten => 4242,1,VoicemailMain(default)
+
+After that I registered both my Mac and my iPhone and could set up a call between them.
 
 
 Task 2: Analyze VOIP streaming packets
