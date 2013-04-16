@@ -67,5 +67,22 @@ The drawing for both question 1 and 2 is included below.
 
 What struck me as odd and what I couldn't find on the Internet either is the short `INVITE`, `OK`, `ACK` sequence during the call between the caller and the server (which I grayed out in the drwaing). Maybe this is because some changes in the network, but I can't say for sure.
 
-**3. Capture RTP streaming in the call, using Wireshark to decode the captured conversation. What is the maximal and mean jitter values of the RTP stream? List some possible sources of jitter? Explain relation between jitter and delay.**
+**3. Capture RTP streaming in the call, using Wireshark to decode the captured conversation.**
 
+Done. If you want to hear the class room at the time of the recording please listen to the [rtp-capture.au](rtp-capture.au) file.
+
+**What is the maximal and mean jitter values of the RTP stream? **
+
+ * Maximum jitter from Mac to server: 0.59ms
+ * Mean jitter from Mac server: 0.48ms
+
+ * Maximum jitter from iPhone to server: 10.98ms
+ * Mean jitter from iPhone to server: 6.65ms
+
+The increase in jitter for the iPhone can be explained because the iPhone is on WLAN and is also outside of the OS3 network and will need to be routed some more.
+
+**List some possible sources of jitter? Explain relation between jitter and delay.**
+
+Jitter can be caused by usage of wireless networks and differences in propagation through the medium. Or more importantly by differences in the amount of buffering taking place on a networking device.
+
+Jitter is more specifically defined as packet delay variation (PDV). This immediately explains the relation with packet delay (latency). It basically is the absolute amount of difference in time between the receiving of packets in a single flow.
