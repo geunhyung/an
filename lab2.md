@@ -65,5 +65,7 @@ The drawing for both question 1 and 2 is included below.
 
 ![SIP Calling Flow](lab2-drawing.png)
 
+What struck me as odd and what I couldn't find on the Internet either is the short `INVITE`, `OK`, `ACK` sequence during the call between the caller and the server (which I grayed out in the drwaing). Maybe this is because some changes in the network, but I can't say for sure.
+
 **3. Capture RTP streaming in the call, using Wireshark to decode the captured conversation. What is the maximal and mean jitter values of the RTP stream? List some possible sources of jitter? Explain relation between jitter and delay.**
 
