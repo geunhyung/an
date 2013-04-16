@@ -71,13 +71,12 @@ What struck me as odd and what I couldn't find on the Internet either is the sho
 
 Done. If you want to hear the class room at the time of the recording please listen to the [rtp-capture.au](rtp-capture.au) file.
 
-**What is the maximal and mean jitter values of the RTP stream? **
+**What is the maximal and mean jitter values of the RTP stream?**
 
- * Maximum jitter from Mac to server: 0.59ms
- * Mean jitter from Mac server: 0.48ms
-
- * Maximum jitter from iPhone to server: 10.98ms
- * Mean jitter from iPhone to server: 6.65ms
+|                       | Maximum jitter (ms) | Mean jitter (ms) |
+|----------------------:|:--------------------|:-----------------|
+| from Mac to server    | 0.59ms              | 0.48ms           |
+| from iPhone to server | 10.98ms             | 6.65ms           |
 
 The increase in jitter for the iPhone can be explained because the iPhone is on WLAN and is also outside of the OS3 network and will need to be routed some more.
 
