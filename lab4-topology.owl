@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.glif.is/working-groups/tech/dtox#"
+     xml:base="http://www.glif.is/working-groups/tech/dtox"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dtox="http://www.glif.is/working-groups/tech/dtox#">
+
+    <!-- urn:ogf:network:stp:Michiel:A1 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:Michiel:A1">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+        <connectedTo rdf:resource="urn:ogf:network:stp:razvan:A1"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:Michiel:A2 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:Michiel:A2">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:Michiel:A3 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:Michiel:A3">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:Michiel:A4 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:Michiel:A4">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:Michiel:U1 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:Michiel:U1">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+        <connectedTo rdf:resource="urn:ogf:network:stp:uva:michiel1"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:uva:michiel1 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:uva:michiel1">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:stp:uva:michiel2 -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:stp:uva:michiel2">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#STP"/>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:nsnetwork:Michiel -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsnetwork:Michiel">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSNetwork"/>
+        <rdfs:label xml:lang="en">Michiel</rdfs:label>
+        <hasSTP rdf:resource="urn:ogf:network:stp:Michiel:A1"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:Michiel:A2"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:Michiel:A3"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:Michiel:A4"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:Michiel:U1"/>
+        <managedBy rdf:resource="urn:ogf:network:nsa:Michiel"/>
+    </owl:NamedIndividual>
+
+
+    <!-- urn:ogf:network:nsa:Michiel -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsa:Michiel">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSA"/>
+        <managing rdf:resource="urn:ogf:network:nsnetwork:Michiel" />
+        <adminContact rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michiel network</adminContact>
+        <csProviderEndpoint rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://145.100.106.132:9080/NSI/services/ConnectionService</csProviderEndpoint>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:nsnetwork:razvan -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsnetwork:razvan">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSNetwork"/>
+        <rdfs:label xml:lang="en">razvan</rdfs:label>
+        <hasSTP rdf:resource="urn:ogf:network:stp:razvan:A1"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:razvan:A2"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:razvan:A3"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:razvan:A4"/>
+        <managedBy rdf:resource="urn:ogf:network:nsa:razvan"/>
+    </owl:NamedIndividual>
+
+
+    <!-- urn:ogf:network:nsa:razvan -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsa:razvan">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSA"/>
+        <managing rdf:resource="urn:ogf:network:nsnetwork:razvan" />
+        <adminContact rdf:datatype="http://www.w3.org/2001/XMLSchema#string">razvan network</adminContact>
+        <csProviderEndpoint rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://145.100.104.136:9080/NSI/services/ConnectionService</csProviderEndpoint>
+    </owl:NamedIndividual>
+
+    <!-- urn:ogf:network:nsnetwork:uva -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsnetwork:uva">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSNetwork"/>
+        <rdfs:label xml:lang="en">uva</rdfs:label>
+        <hasSTP rdf:resource="urn:ogf:network:stp:uva:michiel1"/>
+        <hasSTP rdf:resource="urn:ogf:network:stp:uva:michiel2"/>
+        <managedBy rdf:resource="urn:ogf:network:nsa:uva"/>
+    </owl:NamedIndividual>
+
+
+    <!-- urn:ogf:network:nsa:uva -->
+    <owl:NamedIndividual rdf:about="urn:ogf:network:nsa:uva">
+        <rdf:type rdf:resource="http://www.glif.is/working-groups/tech/dtox#NSA"/>
+        <managing rdf:resource="urn:ogf:network:nsnetwork:uva" />
+        <adminContact rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uva network</adminContact>
+        <csProviderEndpoint rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://apricot.studlab.os3.nl:9080/NSI/services/ConnectionService</csProviderEndpoint>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

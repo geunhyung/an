@@ -65,10 +65,59 @@ And then we used the other STP at Razvan's network:
 Task 3: Request on Partner domain
 --------------------------------
 
+I got a reservation from Razvan in my logs:
 
+    2013-04-19 16:23:19+0200 [opennsa] 
+	2013-04-19 16:23:19+0200 [opennsa.NSIService] Connection urn:uuid:b85f6634-a8fc-11e2-af85-00188bf7d8a5. Reserve request from urn:ogf:network:nsa:Razvan.
+	2013-04-19 16:23:19+0200 [opennsa.NSIService] Connection urn:uuid:b85f6634-a8fc-11e2-af85-00188bf7d8a5: Simple path creation: Michiel:A1 -> Michiel:A2 (Michiel)
+	2013-04-19 16:23:19+0200 [DUD Network Michiel] Link: 177379308, DudDevicePort_A1 -> DudDevicePort_A2 : RESERVING.
+	2013-04-19 16:23:19+0200 [opennsa.Scheduler] State transition scheduled: In 35 seconds to state Scheduled
+	2013-04-19 16:23:19+0200 [DUD Network Michiel] Link: 177379308, DudDevicePort_A1 -> DudDevicePort_A2 : RESERVED.
+	2013-04-19 16:23:19+0200 [opennsa.Connection] Connection urn:uuid:b85f6634-a8fc-11e2-af85-00188bf7d8a5: Reserve succeeded
+	2013-04-19 16:23:19+0200 [opennsa.Scheduler] State transition scheduled: In 35 seconds to state Scheduled
+	
+And then I did the same from my server to his:
+
+    # ./onsa reserve -t ../opennsa-confs/test-topology.owl -n Michiel -s Michiel:A1 -d Razvan:A2
+	Requester URL: http://localhost:7080/NSI/services/ConnectionService
+	Site starting on 7080
+	Connection ID: 47cd72e8-a8fd-11e2-834a-080027449efb
+	Global ID: conn-8249
+	Reservation created at <NetworkServiceAgent Michiel>
+	(TCP Port 7080 Closed)
 
 Task 4: Connecting to the central domain
 ---------------------------------------
 
+So with help of Jeroen I finally got the message that the defined paths in the OWL file are static and thus they cannot be connected. So I did:
+
+    # ./onsa reserve -t ../opennsa-confs/test-topology.owl -n Michiel -s Michiel:A2 -d uva:michiel2
+	Requester URL: http://localhost:7080/NSI/services/ConnectionService
+	Site starting on 7080
+	Connection ID: 2fd496b6-a903-11e2-834a-080027449efb
+	Global ID: conn-6752
+	(TCP Port 7080 Closed)
+	
+In summary you need to:
+
+ - Define the STP's
+  - Including a link between the two networks
+ - Define the network
+ - Define the NSA
+
+And now it worked! Please see the [test-topology.owl](test-topology.owl) file to see how I defined the links. 
+
 Task 5: Analyse orchestration
 ----------------------------
+
+*1. Describe what you would need to be able to do reservations with other students.*
+
+You would need the names of the STP's in the middle network and the NSA and STP's of the end network.
+
+***THIS SPACE INTENTIONALLY LEFT BLANK***
+
+*3. Is this a tree or chain model? Explain the difference.*
+
+This is will count as a _chain_ because there is a single line between two (and no more and no less) points.
+
+
