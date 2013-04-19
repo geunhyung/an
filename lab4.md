@@ -105,7 +105,7 @@ In summary you need to:
  - Define the network
  - Define the NSA
 
-And now it worked! Please see the [test-topology.owl](test-topology.owl) file to see how I defined the links. 
+And now it worked! Please see the [lab4-topology.owl](lab4-topology.owl) file to see how I defined the links. 
 
 Task 5: Analyse orchestration
 ----------------------------
