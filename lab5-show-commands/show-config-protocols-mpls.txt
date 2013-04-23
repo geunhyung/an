@@ -1,0 +1,21 @@
+student@srx5> show configuration protocols mpls
+traffic-engineering bgp-igp;
+icmp-tunneling;
+label-switched-path toR8 {
+    to 8.8.8.8;
+    install 145.125.0.0/32;
+    no-cspf;
+}
+interface all;
+
+student@srx6> show configuration protocols mpls
+icmp-tunneling;
+interface all;
+
+student@srx7> show configuration protocols mpls
+icmp-tunneling;
+interface all;
+
+student@srx8> show configuration protocols mpls
+icmp-tunneling;
+interface all;

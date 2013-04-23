@@ -1,0 +1,19 @@
+student@srx5> show ldp neighbor
+Address            Interface          Label space ID         Hold time
+192.168.56.2       ge-0/0/4.56        6.6.6.6:0                12
+192.168.58.2       ge-0/0/4.58        8.8.8.8:0                11
+
+student@srx6> show ldp neighbor
+Address            Interface          Label space ID         Hold time
+192.168.56.1       ge-0/0/4.56        5.5.5.5:0                13
+192.168.67.2       ge-0/0/4.67        7.7.7.7:0                12
+
+student@srx7> show ldp neighbor
+Address            Interface          Label space ID         Hold time
+192.168.67.1       ge-0/0/4.67        6.6.6.6:0                11
+192.168.78.2       ge-0/0/4.78        8.8.8.8:0                14
+
+student@srx8> show ldp neighbor
+Address            Interface          Label space ID         Hold time
+192.168.58.1       ge-0/0/4.58        5.5.5.5:0                13
+192.168.78.1       ge-0/0/4.78        7.7.7.7:0                11

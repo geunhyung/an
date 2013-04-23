@@ -1,0 +1,24 @@
+student@srx5> show mpls lsp
+Ingress LSP: 1 sessions
+To              From            State Rt P     ActivePath       LSPname
+8.8.8.8         5.5.5.5         Up     0 *                      toR8
+Total 1 displayed, Up 1, Down 0
+
+student@srx6> show mpls lsp
+Transit LSP: 1 sessions
+To              From            State   Rt Style Labelin Labelout LSPname
+8.8.8.8         5.5.5.5         Up       0  1 FF  299824   299824 toR8
+Total 1 displayed, Up 1, Down 0
+
+student@srx7> show mpls lsp
+Transit LSP: 1 sessions
+To              From            State   Rt Style Labelin Labelout LSPname
+8.8.8.8         5.5.5.5         Up       0  1 FF  299824        3 toR8
+Total 1 displayed, Up 1, Down 0
+
+student@srx8> show mpls lsp
+Egress LSP: 1 sessions
+To              From            State   Rt Style Labelin Labelout LSPname
+8.8.8.8         5.5.5.5         Up       0  1 FF       3        - toR8
+Total 1 displayed, Up 1, Down 0
+

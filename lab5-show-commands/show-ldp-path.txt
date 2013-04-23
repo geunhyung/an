@@ -1,0 +1,62 @@
+student@srx5> show ldp path
+Output Session (label)          Input Session (label)
+6.6.6.6:0(3)                    ( )
+8.8.8.8:0(3)
+  Attached route:  5.5.5.5/32
+6.6.6.6:0(299776)               6.6.6.6:0(3)
+8.8.8.8:0(299776)
+  Attached route:  6.6.6.6/32, Ingress route
+6.6.6.6:0(299792)               6.6.6.6:0(299792)
+8.8.8.8:0(299792)
+  Attached route:  7.7.7.7/32, Ingress route
+6.6.6.6:0(299808)               6.6.6.6:0(299808)
+8.8.8.8:0(299808)
+  Attached route:  8.8.8.8/32, Ingress route
+
+
+student@srx6> show ldp path
+Output Session (label)          Input Session (label)
+5.5.5.5:0(3)                    ( )
+7.7.7.7:0(3)
+  Attached route:  6.6.6.6/32
+5.5.5.5:0(299776)               5.5.5.5:0(3)
+7.7.7.7:0(299776)
+  Attached route:  5.5.5.5/32, Ingress route
+5.5.5.5:0(299792)               7.7.7.7:0(3)
+7.7.7.7:0(299792)
+  Attached route:  7.7.7.7/32, Ingress route
+5.5.5.5:0(299808)               7.7.7.7:0(299808)
+7.7.7.7:0(299808)
+  Attached route:  8.8.8.8/32, Ingress route
+
+
+student@srx7> show ldp path
+Output Session (label)          Input Session (label)
+6.6.6.6:0(3)                    ( )
+8.8.8.8:0(3)
+  Attached route:  7.7.7.7/32
+6.6.6.6:0(299776)               6.6.6.6:0(3)
+8.8.8.8:0(299776)
+  Attached route:  6.6.6.6/32, Ingress route
+6.6.6.6:0(299792)               6.6.6.6:0(299776)
+8.8.8.8:0(299792)
+  Attached route:  5.5.5.5/32, Ingress route
+6.6.6.6:0(299808)               8.8.8.8:0(3)
+8.8.8.8:0(299808)
+  Attached route:  8.8.8.8/32, Ingress route
+
+
+student@srx8> show ldp path
+Output Session (label)          Input Session (label)
+5.5.5.5:0(3)                    ( )
+7.7.7.7:0(3)
+  Attached route:  8.8.8.8/32
+5.5.5.5:0(299776)               7.7.7.7:0(3)
+7.7.7.7:0(299776)
+  Attached route:  7.7.7.7/32, Ingress route
+5.5.5.5:0(299792)               7.7.7.7:0(299776)
+7.7.7.7:0(299792)
+  Attached route:  6.6.6.6/32, Ingress route
+5.5.5.5:0(299808)               7.7.7.7:0(299792)
+7.7.7.7:0(299808)
+  Attached route:  5.5.5.5/32, Ingress route
