@@ -3,11 +3,11 @@ Lab 5: MPLS Treasure Hunt
 
 **What are the IP addressing details of this topology?**
 
- ![lab5-topo.png](Lab 5 Topology)
+![Lab 5 Topology](lab5-topo.png)
 
 **Which IGP is used?**
 
- OSPF.
+OSPF.
 
 **Describe in detail its configuration and its functioning. Use show commands to explain the set-up.**
 
