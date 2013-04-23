@@ -29,7 +29,7 @@ When we look at the config we see one large backbone area, with no stub areas. W
         }
     }
 
-Except for R8, which has an extra policy and also a metric configured on neighbour R5 (also present from R5, by the way). 
+Except for R8, which has an extra policy and also a metric configured on neighbour R5. 
 
     export flikkerinospf;
     area 0.0.0.0 {
@@ -41,6 +41,45 @@ Except for R8, which has an extra policy and also a metric configured on neighbo
         }
     }
 
+The routes in R5 display this as well:
+
+    student@srx5> show ospf route 
+	Topology default Route Table:
+
+	Prefix             Path  Route      NH       Metric NextHop       Nexthop      
+	                   Type  Type       Type            Interface     Address/LSP
+	6.6.6.6            Intra Router     IP            1 ge-0/0/4.56   192.168.56.2
+	7.7.7.7            Intra Router     IP            2 ge-0/0/4.56   192.168.56.2
+	8.8.8.8            Intra AS BR      IP            3 ge-0/0/4.56   192.168.56.2
+	5.5.5.5/32         Intra Network    IP            0 lo0.0
+	6.6.6.6/32         Intra Network    IP            1 ge-0/0/4.56   192.168.56.2
+	7.7.7.7/32         Intra Network    IP            2 ge-0/0/4.56   192.168.56.2
+	8.8.8.8/32         Intra Network    IP            3 ge-0/0/4.56   192.168.56.2
+	145.125.0.0/16     Ext2  Network    IP            0 ge-0/0/4.56   192.168.56.2
+	192.168.56.0/24    Intra Network    IP            1 ge-0/0/4.56
+	192.168.58.0/24    Intra Network    IP         1000 ge-0/0/4.58
+	192.168.67.0/24    Intra Network    IP            2 ge-0/0/4.56   192.168.56.2
+	192.168.78.0/24    Intra Network    IP            3 ge-0/0/4.56   192.168.56.2
+
+Here you can also see the external route 145.125.0.0/16 which is propagated from R8, which makes it an AS Boundary Router:
+
+    student@srx8> show ospf overview 
+	Instance: master
+	  Router ID: 8.8.8.8
+	  Route table index: 0
+	  AS boundary router
+	  LSA refresh time: 50 minutes
+	  Area: 0.0.0.0
+	    Stub type: Not Stub
+	    Authentication Type: None
+	    Area border routers: 0, AS boundary routers: 0
+	    Neighbors
+	      Up (in full state): 2
+	  Topology: default (ID 0)
+	    Prefix export count: 1
+	    Full SPF runs: 4
+	    SPF delay: 0.200000 sec, SPF holddown: 5 sec, SPF rapid runs: 3
+	    Backup SPF: Not Needed
 
 **Question 2: Which routes are present on the routers (which routing table)?**
 
@@ -169,12 +208,20 @@ In the above output you can also see the used labels for traffic forwarding betw
 
 **Question 4: RSVP is also configured, which tunnel is built?**
 
-The LSP which has been defined is also configured as an RSVP tunnel because of the `traffic-engineering bgp-igp` statement. This causes the `inet.3` table to be incorporated into the `inet.0` table, allowing for the use of the lower level information from MPLS and RSVP by the upper layer IGP of R5. Which finally means that the following route will be installed:
+Normally the IP forwarding table is filled with BGP routing information which can also get information from the MPLS routing table:
+
+![No traffic engineering](http://www.juniper.net/techpubs/images/h1447.gif)
+
+But in this case, the LSP which has been defined is also configured as an RSVP tunnel because of the `traffic-engineering bgp-igp` statement. This causes the `inet.3` table to be incorporated into the `inet.0` table, allowing for the use of the lower level information from MPLS and RSVP by the upper layer IGP of R5. 
+
+![Traffic Engineering](http://www.juniper.net/techpubs/images/h1447.gif)
+
+Which finally means that the following route will be installed:
 
     145.125.0.0/32     *[RSVP/7/1] 01:52:25, metric 3
 	                    > to 192.168.56.2 via ge-0/0/4.56, label-switched-path toR8
 
-This process can be found on the [Juniper Tech Publications](http://www.juniper.net/techpubs/en_US/junos9.5/information-products/topic-collections/config-guide-mpls-applications/mpls-configuring-traffic-engineering-for-lsps.html#id-30128)
+This process can be found on the [Juniper Tech Publications](http://www.juniper.net/techpubs/en_US/junos9.5/information-products/topic-collections/config-guide-mpls-applications/mpls-configuring-traffic-engineering-for-lsps.html#id-30128) and [this article](http://www.juniper.net/techpubs/software/junos/junos93/swconfig-mpls-apps/mpls-and-routing-tables.html).
 
 **Why is this tunnel preferred above the LSP built by LDP? What do you need to change this preference?**
 
