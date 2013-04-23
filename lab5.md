@@ -210,7 +210,7 @@ In the above output you can also see the used labels for traffic forwarding betw
 
 Normally the IP forwarding table is filled with BGP routing information which can also get information from the MPLS routing table:
 
-![No traffic engineering](http://www.juniper.net/techpubs/images/h1447.gif)
+![No traffic engineering](http://www.juniper.net/techpubs/images/h1446.gif)
 
 But in this case, the LSP which has been defined is also configured as an RSVP tunnel because of the `traffic-engineering bgp-igp` statement. This causes the `inet.3` table to be incorporated into the `inet.0` table, allowing for the use of the lower level information from MPLS and RSVP by the upper layer IGP of R5. 
 
