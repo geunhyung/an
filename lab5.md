@@ -85,39 +85,69 @@ Here you can also see the external route 145.125.0.0/16 which is propagated from
 
 On R8 we see the following IP routes:
 
-    inet.0: 15 destinations, 15 routes (15 active, 0 holddown, 0 hidden)
-    + = Active Route, - = Last Active, * = Both
-    
-    5.5.5.5/32         *[OSPF/10] 00:49:51, metric 3
-                        > to 192.168.78.1 via ge-0/0/4.78
-    6.6.6.6/32         *[OSPF/10] 00:49:51, metric 2
-                        > to 192.168.78.1 via ge-0/0/4.78
-    7.7.7.7/32         *[OSPF/10] 00:49:51, metric 1
-                        > to 192.168.78.1 via ge-0/0/4.78
-    8.8.8.8/32         *[Direct/0] 00:50:01
-                        > via lo0.0
-    10.10.1.0/24       *[Direct/0] 00:50:21
-                        > via ge-0/0/0.0
-    10.10.1.8/32       *[Local/0] 00:50:35
-                          Local via ge-0/0/0.0
-    10.10.10.0/24      *[Static/5] 00:50:21
-                        > to 10.10.1.254 via ge-0/0/0.0
-    145.125.0.0/16     *[Static/5] 00:50:11
-                          Discard
-    192.168.56.0/24    *[OSPF/10] 00:49:51, metric 3
-                        > to 192.168.78.1 via ge-0/0/4.78
-    192.168.58.0/24    *[Direct/0] 00:50:01
-                        > via ge-0/0/4.58
-    192.168.58.2/32    *[Local/0] 00:50:01
-                          Local via ge-0/0/4.58
-    192.168.67.0/24    *[OSPF/10] 00:49:51, metric 2
-                        > to 192.168.78.1 via ge-0/0/4.78
-    192.168.78.0/24    *[Direct/0] 00:50:01
-                        > via ge-0/0/4.78
-    192.168.78.2/32    *[Local/0] 00:50:01
-                          Local via ge-0/0/4.78
-    224.0.0.5/32       *[OSPF/10] 00:50:11, metric 1
-                          MultiRecv
+    student@srx8> show route					
+	inet.0: 15 destinations, 15 routes (15 active, 0 holddown, 0 hidden)
+	+ = Active Route, - = Last Active, * = Both
+
+	5.5.5.5/32         *[OSPF/10] 01:21:14, metric 3
+	                    > to 192.168.78.1 via ge-0/0/4.78
+	6.6.6.6/32         *[OSPF/10] 01:21:14, metric 2
+	                    > to 192.168.78.1 via ge-0/0/4.78
+	7.7.7.7/32         *[OSPF/10] 01:21:14, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78
+	8.8.8.8/32         *[Direct/0] 01:21:24
+	                    > via lo0.0
+	10.10.1.0/24       *[Direct/0] 01:21:44
+	                    > via ge-0/0/0.0
+	10.10.1.8/32       *[Local/0] 01:21:58
+	                      Local via ge-0/0/0.0
+	10.10.10.0/24      *[Static/5] 01:21:44
+	                    > to 10.10.1.254 via ge-0/0/0.0
+	145.125.0.0/16     *[Static/5] 01:21:34
+	                      Discard
+	192.168.56.0/24    *[OSPF/10] 01:21:14, metric 3
+	                    > to 192.168.78.1 via ge-0/0/4.78
+	192.168.58.0/24    *[Direct/0] 01:21:24
+	                    > via ge-0/0/4.58
+	192.168.58.2/32    *[Local/0] 01:21:24
+	                      Local via ge-0/0/4.58
+	192.168.67.0/24    *[OSPF/10] 01:21:14, metric 2
+	                    > to 192.168.78.1 via ge-0/0/4.78
+	192.168.78.0/24    *[Direct/0] 01:21:24
+	                    > via ge-0/0/4.78
+	192.168.78.2/32    *[Local/0] 01:21:24
+	                      Local via ge-0/0/4.78
+	224.0.0.5/32       *[OSPF/10] 01:21:34, metric 1
+	                      MultiRecv
+
+	inet.3: 3 destinations, 3 routes (3 active, 0 holddown, 0 hidden)
+	+ = Active Route, - = Last Active, * = Both
+
+	5.5.5.5/32         *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Push 299792
+	6.6.6.6/32         *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Push 299776
+	7.7.7.7/32         *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78
+
+	mpls.0: 7 destinations, 7 routes (7 active, 0 holddown, 0 hidden)
+	+ = Active Route, - = Last Active, * = Both
+
+	0                  *[MPLS/0] 01:21:34, metric 1
+	                      Receive
+	1                  *[MPLS/0] 01:21:34, metric 1
+	                      Receive
+	2                  *[MPLS/0] 01:21:34, metric 1
+	                      Receive
+	299776             *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Pop
+	299776(S=0)        *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Pop
+	299792             *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Swap 299776
+	299808             *[LDP/9] 01:21:10, metric 1
+	                    > to 192.168.78.1 via ge-0/0/4.78, Swap 299792
+	
 
 Which are pretty much expected when you look at the topology. Except for the explicit discard which is configured below:
 
@@ -175,30 +205,154 @@ We see it will reach R5 by forwarding it to R6 and push label 299776. Which will
 Here it says that R7 will swap the incoming 299792 label with the 299776 label.
 
 
-**Question 3: What are the MPLS labels used? Which LSPs are configured between the routers? Explain the labels used by each LSP.**
+**Question 3: What are the MPLS labels used?**
+
+The following labels are present in the LDP databases of all the routers:
+
+    student@srx5> show ldp database
+	Input label database, 5.5.5.5:0--6.6.6.6:0
+	  Label     Prefix
+	 299776     5.5.5.5/32
+	      3     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 5.5.5.5:0--6.6.6.6:0
+	  Label     Prefix
+	      3     5.5.5.5/32
+	 299776     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Input label database, 5.5.5.5:0--8.8.8.8:0
+	  Label     Prefix
+	 299808     5.5.5.5/32
+	 299792     6.6.6.6/32
+	 299776     7.7.7.7/32
+	      3     8.8.8.8/32
+
+	Output label database, 5.5.5.5:0--8.8.8.8:0
+	  Label     Prefix
+	      3     5.5.5.5/32
+	 299776     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+
+	student@srx6> show ldp database
+	Input label database, 6.6.6.6:0--5.5.5.5:0
+	  Label     Prefix
+	      3     5.5.5.5/32
+	 299776     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 6.6.6.6:0--5.5.5.5:0
+	  Label     Prefix
+	 299776     5.5.5.5/32
+	      3     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Input label database, 6.6.6.6:0--7.7.7.7:0
+	  Label     Prefix
+	 299792     5.5.5.5/32
+	 299776     6.6.6.6/32
+	      3     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 6.6.6.6:0--7.7.7.7:0
+	  Label     Prefix
+	 299776     5.5.5.5/32
+	      3     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+
+	student@srx7> show ldp database
+	Input label database, 7.7.7.7:0--6.6.6.6:0
+	  Label     Prefix
+	 299776     5.5.5.5/32
+	      3     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 7.7.7.7:0--6.6.6.6:0
+	  Label     Prefix
+	 299792     5.5.5.5/32
+	 299776     6.6.6.6/32
+	      3     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Input label database, 7.7.7.7:0--8.8.8.8:0
+	  Label     Prefix
+	 299808     5.5.5.5/32
+	 299792     6.6.6.6/32
+	 299776     7.7.7.7/32
+	      3     8.8.8.8/32
+
+	Output label database, 7.7.7.7:0--8.8.8.8:0
+	  Label     Prefix
+	 299792     5.5.5.5/32
+	 299776     6.6.6.6/32
+	      3     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+
+	student@srx8> show ldp database
+	Input label database, 8.8.8.8:0--5.5.5.5:0
+	  Label     Prefix
+	      3     5.5.5.5/32
+	 299776     6.6.6.6/32
+	 299792     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 8.8.8.8:0--5.5.5.5:0
+	  Label     Prefix
+	 299808     5.5.5.5/32
+	 299792     6.6.6.6/32
+	 299776     7.7.7.7/32
+	      3     8.8.8.8/32
+
+	Input label database, 8.8.8.8:0--7.7.7.7:0
+	  Label     Prefix
+	 299792     5.5.5.5/32
+	 299776     6.6.6.6/32
+	      3     7.7.7.7/32
+	 299808     8.8.8.8/32
+
+	Output label database, 8.8.8.8:0--7.7.7.7:0
+	  Label     Prefix
+	 299808     5.5.5.5/32
+	 299792     6.6.6.6/32
+	 299776     7.7.7.7/32
+	      3     8.8.8.8/32
+
+
+**Which LSPs are configured between the routers? Explain the labels used by each LSP.**
 
 There is only one LSP configured in the whole setup and that is the LSP `toR8`. This LSP has an ingress at R5 and an egress at R8, with R6 and R7 acting as LSRs.
 
-    student@srx5> show mpls lsp
-	Ingress LSP: 1 sessions
-	To              From            State Rt P     ActivePath       LSPname
-	8.8.8.8         5.5.5.5         Up     0 *                      toR8
+    student@srx5> show rsvp session
+	Ingress RSVP: 1 sessions
+	To              From            State   Rt Style Labelin Labelout LSPname
+	8.8.8.8         5.5.5.5         Up       0  1 FF       -   299824 toR8
 	Total 1 displayed, Up 1, Down 0
 
-	student@srx6> show mpls lsp
-	Transit LSP: 1 sessions
+	student@srx6> show rsvp session
+	Transit RSVP: 1 sessions
 	To              From            State   Rt Style Labelin Labelout LSPname
 	8.8.8.8         5.5.5.5         Up       0  1 FF  299824   299824 toR8
 	Total 1 displayed, Up 1, Down 0
 
-	student@srx7> show mpls lsp
-	Transit LSP: 1 sessions
+	student@srx7> show rsvp session
+	Transit RSVP: 1 sessions
 	To              From            State   Rt Style Labelin Labelout LSPname
 	8.8.8.8         5.5.5.5         Up       0  1 FF  299824        3 toR8
 	Total 1 displayed, Up 1, Down 0
 
-	student@srx8> show mpls lsp
-	Egress LSP: 1 sessions
+	student@srx8> show rsvp session
+	Egress RSVP: 1 sessions
 	To              From            State   Rt Style Labelin Labelout LSPname
 	8.8.8.8         5.5.5.5         Up       0  1 FF       3        - toR8
 	Total 1 displayed, Up 1, Down 0
