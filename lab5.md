@@ -204,6 +204,7 @@ We see it will reach R5 by forwarding it to R6 and push label 299776. Which will
 
 Here it says that R7 will swap the incoming 299792 label with the 299776 label.
 
+For an explanation of the other routing table `inet.3` please see Question 4.
 
 **Question 3: What are the MPLS labels used?**
 
