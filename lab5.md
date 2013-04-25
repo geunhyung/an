@@ -83,7 +83,7 @@ Here you can also see the external route 145.125.0.0/16 which is propagated from
 
 **Question 2: Which routes are present on the routers (which routing table)?**
 
-On R8 we see the following IP routes:
+On R8 we see the routes displayed below. There are three "routing tables". The first one, inet.0, is the normal routing table that does the normal layer three forwarding decisions. The third one, mpls.0, is the MPLS "routing" (or forwarding) table. The second one, inet.3, is a special one. It contains host routes that are installed when an LSP is configured and it is typically used by BGP to resolve the destination address of the LSP. With the `traffic-engineering bgp-igp` statement, which is used on router rx5 (later more on that), these host routes are installed in the inet.0 table and can also be used by IGP's.
 
     student@srx8> show route					
 	inet.0: 15 destinations, 15 routes (15 active, 0 holddown, 0 hidden)
@@ -204,7 +204,7 @@ We see it will reach R5 by forwarding it to R6 and push label 299776. Which will
 
 Here it says that R7 will swap the incoming 299792 label with the 299776 label.
 
-For an explanation of the other routing table `inet.3` please see Question 4.
+With regards to the mpls.0 table of router rx8 that we saw earlier, we see the installed labels and the destinations and actions that are attached to them (e.g. pop, swap).
 
 **Question 3: What are the MPLS labels used?**
 
@@ -332,9 +332,36 @@ The following labels are present in the LDP databases of all the routers:
 
 **Which LSPs are configured between the routers? Explain the labels used by each LSP.**
 
-There is only one LSP configured in the whole setup and that is the LSP `toR8`. This LSP has an ingress at R5 and an egress at R8, with R6 and R7 acting as LSRs.
+There is only one LSP configured in the whole setup and that is the LSP `toR8`. This LSP has an ingress at R5 and an egress at R8, with R6 and R7 acting as LSRs. Label 299824 is used on routers rx6 and rx7 to recognize traffic for LSP `toR8`. Router rx7 uses label 3 as its outgoing label. The label `3` is the *Explicit NULL* label which will cause R7 to already pop the label for R8 so it can start processing the packet immediately.
 
-    student@srx5> show rsvp session
+	student@srx5> show mpls lsp
+	Ingress LSP: 1 sessions
+	To              From            State Rt P     ActivePath       LSPname
+	8.8.8.8         5.5.5.5         Up     0 *                      toR8
+	Total 1 displayed, Up 1, Down 0
+
+	student@srx6> show mpls lsp
+	Transit LSP: 1 sessions
+	To              From            State   Rt Style Labelin Labelout LSPname
+	8.8.8.8         5.5.5.5         Up       0  1 FF  299824   299824 toR8
+	Total 1 displayed, Up 1, Down 0
+
+	student@srx7> show mpls lsp
+	Transit LSP: 1 sessions
+	To              From            State   Rt Style Labelin Labelout LSPname
+	8.8.8.8         5.5.5.5         Up       0  1 FF  299824        3 toR8
+	Total 1 displayed, Up 1, Down 0
+
+	student@srx8> show mpls lsp
+	Egress LSP: 1 sessions
+	To              From            State   Rt Style Labelin Labelout LSPname
+	8.8.8.8         5.5.5.5         Up       0  1 FF       3        - toR8
+	Total 1 displayed, Up 1, Down 0
+
+**Question 4: RSVP is also configured, which tunnel is built?**
+The RSVP tunnel that is build is the same as the LSP we saw before.
+
+	student@srx5> show rsvp session
 	Ingress RSVP: 1 sessions
 	To              From            State   Rt Style Labelin Labelout LSPname
 	8.8.8.8         5.5.5.5         Up       0  1 FF       -   299824 toR8
@@ -358,11 +385,6 @@ There is only one LSP configured in the whole setup and that is the LSP `toR8`. 
 	8.8.8.8         5.5.5.5         Up       0  1 FF       3        - toR8
 	Total 1 displayed, Up 1, Down 0
 
-
-In the above output you can also see the used labels for traffic forwarding between every MPLS router in the LSP path. The label `3` is the *Explicit NULL* label which will cause R7 to already pop the label for R8 so it can start processing the packet immediately.
-
-**Question 4: RSVP is also configured, which tunnel is built?**
-
 Normally the IP forwarding table is filled with BGP routing information which can also get information from the MPLS routing table:
 
 ![No traffic engineering](http://www.juniper.net/techpubs/images/h1446.gif)
@@ -381,3 +403,4 @@ This process can be found on the [Juniper Tech Publications](http://www.juniper.
 **Why is this tunnel preferred above the LSP built by LDP? What do you need to change this preference?**
 
 RSVP has a default administrative distance of 7 which is lower than LDP (which has 9) and OSPF internal (which has 10). You can change that distance yourself to a higher value if you want. See also this [list of AD's](http://switchingandrouting.wordpress.com/2011/07/10/administrative-distance-ad-values-in-cisco-juniper/).
+
