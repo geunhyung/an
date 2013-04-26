@@ -263,5 +263,7 @@ Now every flow will have two output ports, the legitimate one and the mirror por
 
 I verified this by `tcpdump`ing on host 3 and pinging between host 1 and 2.
 
+Please see the [lab6-awesome_switch.py](lab6-awesome_switch.py) file for the complete source.
+
 Task 6: Implement Dijkstras algorithm
 -------------------------------------
