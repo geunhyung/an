@@ -193,41 +193,41 @@ Task 4: MAC learning switch
 Did this as well using the following code:
 
 ```python
-    def act_like_switch (self, packet, packet_in):
-    """ 
-    Implement switch-like behavior.
-    """
+def act_like_switch (self, packet, packet_in):
+""" 
+Implement switch-like behavior.
+"""
 
-    # Learn the port for the source MAC
-    self.mac_to_port[str(packet.src)] = packet_in.in_port
+# Learn the port for the source MAC
+self.mac_to_port[str(packet.src)] = packet_in.in_port
 
-    if str(packet.dst) in self.mac_to_port:
-      # Send packet out the associated port
-      #self.resend_packet(packet_in, self.mac_to_port[str(packet.dst)])
+if str(packet.dst) in self.mac_to_port:
+  # Send packet out the associated port
+  #self.resend_packet(packet_in, self.mac_to_port[str(packet.dst)])
 
-      # Once you have the above working, try pushing a flow entry
-      # instead of resending the packet (comment out the above and
-      # uncomment and complete the below.)
+  # Once you have the above working, try pushing a flow entry
+  # instead of resending the packet (comment out the above and
+  # uncomment and complete the below.)
 
-      log.debug("new flow: match on " + str(packet.dst) + " output to "+ str(self.mac_to_port[str(packet.dst)]))
-      # Maybe the log statement should have source/destination/port?
+  log.debug("new flow: match on " + str(packet.dst) + " output to "+ str(self.mac_to_port[str(packet.dst)]))
+  # Maybe the log statement should have source/destination/port?
 
-      msg = of.ofp_flow_mod()
-      #   
-      ## Set fields to match received packet
-      msg.match = of.ofp_match.from_packet(packet, packet_in.in_port)
-      #   
-      #< Set other fields of flow_mod (timeouts? buffer_id?) >
-      msg.idle_timeout = 8 
-      #   
-      #< Add an output action, and send -- similar to resend_packet() >
-      msg.actions.append(of.ofp_action_output(port = self.mac_to_port[str(packet.dst)]))
-      self.connection.send(msg)
+  msg = of.ofp_flow_mod()
+  #   
+  ## Set fields to match received packet
+  msg.match = of.ofp_match.from_packet(packet, packet_in.in_port)
+  #   
+  #< Set other fields of flow_mod (timeouts? buffer_id?) >
+  msg.idle_timeout = 8 
+  #   
+  #< Add an output action, and send -- similar to resend_packet() >
+  msg.actions.append(of.ofp_action_output(port = self.mac_to_port[str(packet.dst)]))
+  self.connection.send(msg)
 
-    else:
-      # Flood the packet out everything but the input port
-      # This part looks familiar, right?
-      self.resend_packet(packet_in, of.OFPP_ALL)
+else:
+  # Flood the packet out everything but the input port
+  # This part looks familiar, right?
+  self.resend_packet(packet_in, of.OFPP_ALL)
 ```
 
 And this apparently works:
