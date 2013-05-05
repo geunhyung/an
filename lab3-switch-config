@@ -1,0 +1,179 @@
+
+!
+! Last configuration change at 15:03:53 CEST Sun May 5 2013 by mike
+! NVRAM config last updated at 15:21:28 CEST Sun May 5 2013 by mike
+!
+version 12.1
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+service password-encryption
+!
+hostname MA-R1
+!
+aaa new-model
+aaa authentication login default local
+aaa authorization exec default local
+aaa authorization network default local
+enable password 7 ...
+!
+username mike privilege 15 password 7 ...
+username rawi privilege 15 password 7 ...
+username wouter privilege 15 password 7 ...
+clock timezone CEST 2
+!
+class-map match-all FLOW1
+  match access-group name COS
+!
+mls qos map cos-dscp 0 8 16 24 34 46 48 56
+ip subnet-zero
+!
+ip domain-name studlab.os3.nl
+ip ssh time-out 120
+ip ssh authentication-retries 3
+vtp mode transparent
+!
+spanning-tree mode pvst
+no spanning-tree optimize bpdu transmission
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan 23
+ name LINK
+!
+vlan 100
+ name ICT
+!
+vlan 120
+ name CREW
+!
+vlan 121
+ name SCAN1
+!
+vlan 122
+ name SCAN2
+!
+vlan 123
+ name SCAN3
+!
+vlan 124
+ name SCAN4
+!
+vlan 125
+ name SCAN5
+!
+vlan 126
+ name SCAN6
+!
+vlan 127
+ name SCAN7
+!
+vlan 130
+ name COORD
+!
+vlan 131
+ name COORDWIFI
+!
+vlan 132
+ name COORDLOCAL
+!
+vlan 140
+ name LEADERS
+!
+vlan 141
+ name LEADERSWIFI
+!
+vlan 150
+ name FILE
+!
+vlan 160
+ name VIDEO
+!
+vlan 180
+ name CAFE
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+ mls qos trust dscp
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.77.65.200 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 10.77.65.1
+no ip http server
+!
+ip access-list extended COS
+ permit udp host 10.77.65.11 host 10.77.65.12
+logging source-interface Vlan1
+logging 10.77.65.10
+access-list 1 permit 10.77.65.0 0.0.0.255
+access-list 1 deny   any
+snmp-server community wgt123 RW
+!
+line con 0
+ password 7 ...
+line vty 0 4
+ password 7 ...
+ transport input ssh
+ transport output none
+line vty 5 15
+ password 7 ...
+ transport input ssh
+ transport output none
+!
+ntp clock-period 17180171
+ntp server 10.77.65.10
+!
+end
