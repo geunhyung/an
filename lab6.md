@@ -267,3 +267,45 @@ Please see the [lab6-awesome_switch.py](lab6-awesome_switch.py) file for the com
 
 Task 6: Implement Dijkstras algorithm
 -------------------------------------
+
+I made my topology like this:
+
+![Lab 6 Task 6 Topology](lab6-topo.png)
+
+By editing the topo.py file like this:
+
+```python
+from mininet.topo import Topo
+from mininet.net import Mininet
+from mininet.util import dumpNodeConnections
+from mininet.log import setLogLevel
+
+class MyTopo(Topo):
+    def __init__(self,n=8, **opts):
+        Topo.__init__(self, **opts)
+        switches = []
+        hosts = []
+        for i in range(n):
+            switches.append(self.addSwitch('s'+str(i)))
+        for j in range(n):
+            hosts.append(self.addHost('h'+str(j)))
+        for k in range(n):
+            self.addLink(switches[k], hosts[k])
+
+        # ISLs
+        self.addLink(switches[0], switches[2])
+        self.addLink(switches[1], switches[3])
+        self.addLink(switches[1], switches[4])
+        self.addLink(switches[2], switches[5])
+        self.addLink(switches[2], switches[6])
+        self.addLink(switches[2], switches[7])
+        self.addLink(switches[3], switches[4])
+        self.addLink(switches[3], switches[5])
+        self.addLink(switches[3], switches[6])
+        self.addLink(switches[3], switches[7])
+
+# end MyTopo
+
+topos = {'mytopo' : (lambda: MyTopo())}
+```
+
