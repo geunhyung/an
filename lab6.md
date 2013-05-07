@@ -313,3 +313,5 @@ Althoug it's hard to know where to start without having a lot of Python scriptin
 
 After that we need some sort of function to apply the Dijkstra algorithm to it.
 
+At this point I have invested too much time in this task... But unfortunately I am no python wizard so am not able to finish it.
+
