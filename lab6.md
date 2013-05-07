@@ -309,3 +309,7 @@ class MyTopo(Topo):
 topos = {'mytopo' : (lambda: MyTopo())}
 ```
 
+Althoug it's hard to know where to start without having a lot of Python scripting skills, it seems apparent that we need the `openflow.discovery` and `openflow.topology` POX modules to discover the topology of the network.
+
+After that we need some sort of function to apply the Dijkstra algorithm to it.
+
