@@ -1,0 +1,741 @@
+Script started on Tue 14 May 2013 05:22:13 AM PDT
+root@mininet-vm:~# lscd pox/pox/misc/ls[K[Kdynmd_to[K[K[K[Kn
+dynmnd      dynmn_tool  
+root@mininet-vm:~# dynmn_tool 
+Dynamics Mobile Agent Control Tool v0.8.1
+Using agent path "/var/run/dynamics_mn_admin" 
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	117s ago; Tue May 14 05:20:32 2013
+ 	last reply	117s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	302s ago; Tue May 14 05:20:32 2013
+ 	last reply	302s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	308s ago; Tue May 14 05:20:32 2013
+ 	last reply	308s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	321s ago; Tue May 14 05:20:32 2013
+ 	last reply	321s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ping 192.168.1 206.1 202
+Illegal command: ping
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	339s ago; Tue May 14 05:20:32 2013
+ 	last reply	339s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	366s ago; Tue May 14 05:20:32 2013
+ 	last reply	366s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	373s ago; Tue May 14 05:20:32 2013
+ 	last reply	373s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> statis  us
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	391s ago; Tue May 14 05:20:32 2013
+ 	last reply	391s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Passive Find
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	498s ago; Tue May 14 05:20:32 2013
+ 	last reply	498s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	0
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	643s ago; Tue May 14 05:20:32 2013
+ 	last reply	643s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> stt atus
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	655s ago; Tue May 14 05:20:32 2013
+ 	last reply	655s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	730s ago; Tue May 14 05:20:32 2013
+ 	last reply	730s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	755s ago; Tue May 14 05:20:32 2013
+ 	last reply	755s ago; Tue May 14 05:20:32 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Passive Find
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	0
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Find Agent
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A    status
+Mobile status:
+	state     	Passive Find
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Passive Find
+	local addr	192.168.106.150
+	co-addr   	0.0.0.0
+	FA-addr   	0.0.0.0
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	3s ago; Tue May 14 05:45:45 2013
+ 	last reply	3s ago; Tue May 14 05:45:45 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	34s ago; Tue May 14 05:46:46 2013
+ 	last reply	34s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	72s ago; Tue May 14 05:46:46 2013
+ 	last reply	72s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	78s ago; Tue May 14 05:46:46 2013
+ 	last reply	78s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	86s ago; Tue May 14 05:46:46 2013
+ 	last reply	86s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> list
+List of heard mobility agents:
+192.168.108.2    eth0  prio  0 (-  0%), age 10s HA DYN
+192.168.102.2    eth0  prio  0 (-  0%), age 13s HA DYN
+192.168.105.101  eth0  prio  0 (-  0%), age 58s HA DYN
+192.168.106.101  eth0  prio  0 (-  0%), age  9s HA DYN IN-USE CURRENT
+192.168.101.101  eth0  prio  0 (-  0%), age  7s HA DYN
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	93s ago; Tue May 14 05:46:46 2013
+ 	last reply	93s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> q status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	114s ago; Tue May 14 05:46:46 2013
+ 	last reply	114s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	429s ago; Tue May 14 05:46:46 2013
+ 	last reply	429s ago; Tue May 14 05:46:46 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	273s ago; Tue May 14 05:58:49 2013
+ 	last reply	273s ago; Tue May 14 05:58:49 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	284s ago; Tue May 14 05:58:49 2013
+ 	last reply	284s ago; Tue May 14 05:58:49 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	319s ago; Tue May 14 05:58:49 2013
+ 	last reply	319s ago; Tue May 14 05:58:49 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> exit
+root@mininet-vm:~# dynmn_tool 
+Dynamics Mobile Agent Control Tool v0.8.1
+Using agent path "/var/run/dynamics_mn_admin" 
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	325s ago; Tue May 14 05:58:49 2013
+ 	last reply	325s ago; Tue May 14 05:58:49 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> list
+List of heard mobility agents:
+192.168.108.2    eth0  prio  0 (-  0%), age  7s HA DYN
+192.168.102.2    eth0  prio  0 (-  0%), age 15s HA DYN
+192.168.105.101  eth0  prio  0 (-  0%), age  2s HA DYN
+192.168.104.101  eth0  prio  0 (-  0%), age  6s HA DYN
+192.168.106.101  eth0  prio  0 (-  0%), age  6s HA DYN IN-USE CURRENT
+192.168.101.101  eth0  prio  0 (-  0%), age  5s HA DYN
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	373s ago; Tue May 14 05:58:49 2013
+ 	last reply	373s ago; Tue May 14 05:58:49 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	4s ago; Tue May 14 06:05:13 2013
+ 	last reply	4s ago; Tue May 14 06:05:13 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	26s ago; Tue May 14 06:05:13 2013
+ 	last reply	26s ago; Tue May 14 06:05:13 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	7s ago; Tue May 14 06:05:43 2013
+ 	last reply	7s ago; Tue May 14 06:05:43 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	67s ago; Tue May 14 06:05:43 2013
+ 	last reply	67s ago; Tue May 14 06:05:43 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> status
+Mobile status:
+	state     	At Home
+	local addr	192.168.106.150
+	co-addr   	192.168.106.150
+	FA-addr   	192.168.106.101
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	73s ago; Tue May 14 06:05:43 2013
+ 	last reply	73s ago; Tue May 14 06:05:43 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> statis  us
+Mobile status:
+	state     	Request Tunnel
+	local addr	192.168.106.150
+	co-addr   	192.168.208.2
+	FA-addr   	192.168.208.2
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	1s ago; Tue May 14 06:09:53 2013
+ 	last reply	251s ago; Tue May 14 06:05:43 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> ^[[A
+Illegal command: [A
+> status
+Mobile status:
+	state     	Request Tunnel
+	local addr	192.168.106.150
+	co-addr   	192.168.208.2
+	FA-addr   	192.168.208.2
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	down
+	tunneling mode	full tunnel
+	last request	3s ago; Tue May 14 06:09:57 2013
+ 	last reply	257s ago; Tue May 14 06:05:43 2013
+	reply code	0 - registration accepted
+	info text	trying to connect
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Connected
+	local addr	192.168.106.150
+	co-addr   	192.168.206.202
+	FA-addr   	192.168.206.202
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	up
+	lifetime left	292s
+	tunneling mode	full tunnel
+	last request	8s ago; Tue May 14 06:10:05 2013
+ 	last reply	8s ago; Tue May 14 06:10:05 2013
+	reply code	0 - registration accepted
+	info text	connection established
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Connected
+	local addr	192.168.106.150
+	co-addr   	192.168.206.202
+	FA-addr   	192.168.206.202
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	up
+	lifetime left	172s
+	tunneling mode	full tunnel
+	last request	128s ago; Tue May 14 06:12:45 2013
+ 	last reply	128s ago; Tue May 14 06:12:45 2013
+	reply code	0 - registration accepted
+	info text	connection established
+	active devices	1
+	discarded msgs	0
+> staty us
+Mobile status:
+	state     	Connected
+	local addr	192.168.106.150
+	co-addr   	192.168.206.202
+	FA-addr   	192.168.206.202
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	up
+	lifetime left	162s
+	tunneling mode	full tunnel
+	last request	138s ago; Tue May 14 06:12:45 2013
+ 	last reply	138s ago; Tue May 14 06:12:45 2013
+	reply code	0 - registration accepted
+	info text	connection established
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Connected
+	local addr	192.168.106.150
+	co-addr   	192.168.206.202
+	FA-addr   	192.168.206.202
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	up
+	lifetime left	154s
+	tunneling mode	full tunnel
+	last request	146s ago; Tue May 14 06:12:45 2013
+ 	last reply	146s ago; Tue May 14 06:12:45 2013
+	reply code	0 - registration accepted
+	info text	connection established
+	active devices	1
+	discarded msgs	0
+> status
+Mobile status:
+	state     	Connected
+	local addr	192.168.106.150
+	co-addr   	192.168.206.202
+	FA-addr   	192.168.206.202
+	HA-addr   	192.168.106.101
+	Home addr 	192.168.106.150
+	tunnel is 	up
+	lifetime left	298s
+	tunneling mode	full tunnel
+	last request	2s ago; Tue May 14 06:33:37 2013
+ 	last reply	2s ago; Tue May 14 06:33:37 2013
+	reply code	0 - registration accepted
+	info text	connec

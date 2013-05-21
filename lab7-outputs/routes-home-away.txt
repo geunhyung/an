@@ -1,0 +1,13 @@
+
+root@mininet-vm:~# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.106.0   *               255.255.255.0   U     0      0        0 eth0
+root@mininet-vm:~# ping -i 0.1 -c 50 192.168.106.151^C
+root@mininet-vm:~# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         192.168.206.202 0.0.0.0         UG    0      0        0 eth0
+192.168.202.2   *               255.255.255.255 UH    0      0        0 eth0
+192.168.206.202 *               255.255.255.255 UH    0      0        0 eth0
+192.168.208.2   *               255.255.255.255 UH    0      0        0 eth0

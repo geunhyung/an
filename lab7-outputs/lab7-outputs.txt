@@ -1,0 +1,39 @@
+# echo 1 > /proc/sys/net/ipv4/ip_forward
+# vi /usr/local/etc/dynhad.conf
+# dynhad --fg --debug
+DEBUG_FLAGS[ffffffffffffffffffffeffbfffffebfffffffffffffffffffffffffffffffff]
+HA command line parsing
+Initializing interfaces
+        eth1: ifindex=3 forcing address Listening UDP on 192.168.106.101:434 dev[N/A]
+Listening UDP on 192.168.106.255:434 dev[eth1]
+Listening UDP on 255.255.255.255:434 dev[eth1]
+192.168.106.101 => socket=6
+sending agent advertisement
+ * IP header, len=20
+ * header, len=8
+ * agentadv ext, len=12
+ * Dynamics ext, len=13
+ * total len: 53
+** send_agent_advs: next agentadv: 1368531918.41068 diff = 10014 msec
+set_expr_timer (now=1368531908.026646)
+        next_agentadv in 10.014422 sec
+
+
+/usr/local/etc/dynmnd.conf:
+MNHomeIPAddress	192.168.106.150
+#
+HAIPAddress		192.168.106.101
+#
+HomeNetPrefix	192.168.106.0/24
+
+Ping from MN to CN @ home:
+average 1.305 ms
+Ping from MN to CN @ foreign:
+average 1.848 ms
+
+iperf -c 192.168.106.151 -u -t 60
+UDP IPerf from MN to CN @ home:
+85.7 Mbps
+UDP IPerf from MN to CN @ foreign:
+56.6 Mbps
+
